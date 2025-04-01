@@ -30,7 +30,7 @@ docker-compose down
 
 Run using Gradle:
 ```bash
-gradle bootRun
+./gradlew bootRun
 ```
 
 ## API 
