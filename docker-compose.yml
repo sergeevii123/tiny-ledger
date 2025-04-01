@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  tiny-ledger:
+    build: .
+    ports:
+      - "8080:8080"
+    container_name: tiny-ledger
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/ledger/accounts"]
+      interval: 30s
+      timeout: 10s
+      retries: 3 
