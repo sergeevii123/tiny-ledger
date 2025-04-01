@@ -1,10 +1,11 @@
-package com.example.tinyledger.model;
+package tinyledger.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record Transaction(
     String id,
+    String accountId,
     BigDecimal amount,
     TransactionType type,
     String description,
@@ -15,7 +16,7 @@ public record Transaction(
         WITHDRAWAL
     }
 
-    public Transaction(String id, BigDecimal amount, TransactionType type, String description) {
-        this(id, amount, type, description, LocalDateTime.now());
+    public Transaction(String id, String accountId, BigDecimal amount, TransactionType type, String description) {
+        this(id, accountId, amount, type, description, LocalDateTime.now());
     }
 } 

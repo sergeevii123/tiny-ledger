@@ -1,10 +1,10 @@
-package com.example.tinyledger.controller;
+package tinyledger.controller;
 
-import com.example.tinyledger.dto.ErrorResponse;
-import com.example.tinyledger.dto.TransactionRequest;
-import com.example.tinyledger.dto.TransferRequest;
-import com.example.tinyledger.model.Transaction;
-import com.example.tinyledger.service.LedgerService;
+import tinyledger.dto.ErrorResponse;
+import tinyledger.dto.TransactionRequest;
+import tinyledger.dto.TransferRequest;
+import tinyledger.model.Transaction;
+import tinyledger.service.LedgerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;

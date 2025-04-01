@@ -1,4 +1,4 @@
-package com.example.tinyledger.model;
+package tinyledger.model;
 
 import java.math.BigDecimal;
 

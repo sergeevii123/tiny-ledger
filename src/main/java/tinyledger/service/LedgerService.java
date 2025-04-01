@@ -1,7 +1,7 @@
-package com.example.tinyledger.service;
+package tinyledger.service;
 
-import com.example.tinyledger.model.Account;
-import com.example.tinyledger.model.Transaction;
+import tinyledger.model.Account;
+import tinyledger.model.Transaction;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -15,6 +15,9 @@ public class LedgerService {
     private final Map<String, List<Transaction>> accountTransactions = new ConcurrentHashMap<>();
 
     public Account createAccount(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Account name cannot be empty");
+        }
         String id = UUID.randomUUID().toString();
         Account account = new Account(id, name, BigDecimal.ZERO);
         accounts.put(id, account);
@@ -83,7 +86,7 @@ public class LedgerService {
         };
 
         String transactionId = UUID.randomUUID().toString();
-        Transaction transaction = new Transaction(transactionId, amount, type, description);
+        Transaction transaction = new Transaction(transactionId, accountId, amount, type, description);
         
         accounts.put(accountId, account.withBalance(newBalance));
         accountTransactions.get(accountId).add(transaction);
